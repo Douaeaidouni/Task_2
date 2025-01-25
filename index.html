@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Image Classifier</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Image Classification App</h1>
+        <p>Upload an image, and our AI model will classify it into one of the predefined classes.</p>
+
+        <div class="form-container">
+            <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" required>
+                <button type="submit">Upload and Predict</button>
+            </form>
+        </div>
+
+        {% if message %}
+        <div class="result">
+            <h2>{{ message }}</h2>
+        </div>
+        {% endif %}
+
+        {% if image_path %}
+        <div class="result">
+            <h3>Uploaded Image:</h3>
+            <img src="{{ url_for('static', filename=image_path) }}" alt="Uploaded Image">
+            <h3>Prediction: {{ predicted_label }}</h3>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Footer Section -->
+    <footer id="about">
+        <p>&copy; 2025 Image Classification Project. Built with Flask and TensorFlow.</p>
+    </footer>
+
+</body>
+
+</html>
