@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 
 # Load your trained model
-model = load_model('current_model_checkpoint.h5')  # Replace with your model
+model = load_model('current_model_checkpoint.h5')  
 
 # Class names (update with your dataset labels)
 class_names = ['Bear', 'Camel', 'Chicken', 'Elephant', 'Horse', 'Lion', 'Squirrel']
